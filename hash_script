@@ -1,0 +1,9 @@
+#!/bin/bash
+read -p "Enter a 4-digit integer: " input
+if [[ $input =~ ^[0-9]{4}$ ]]; then
+hash=$(echo -n "$input" | sha256sum)
+echo "$hash" > hash_output.txt
+echo "script.sh: "$input" -> "$hash""
+else 
+echo "Error enter a 4-digit integer."
+fi
